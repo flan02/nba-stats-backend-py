@@ -16,14 +16,14 @@ router = APIRouter()
 @router.get("/{game_id}/{team_abbr}", response_model=List[PlayerBoxScoreResponse])
 def get_player_stats(game_id: str, team_abbr: str):
     box = boxscoretraditionalv2.BoxScoreTraditionalV2(game_id=game_id)
-    stats = box.get_data_frames()
     # [0] for PLAYERS, [1] for TEAM_STATS (same data that /games), [2] for STARTERS + BENCHERS
+    stats = box.get_data_frames()
 
     players_df = stats[0]
-
     players_df = players_df.replace(
         [pd.NA, pd.NaT, np.nan, float("inf"), float("-inf")], None
     )
+
     # $ filtering by team
     players_df = players_df[players_df["TEAM_ABBREVIATION"] == team_abbr.upper()]
 

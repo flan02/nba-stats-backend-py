@@ -92,30 +92,25 @@ class LineupStatsResponse(BaseModel):
     PTS: int
 
 
-# {
-# "GAME_ID": "0022400061",
-# "TEAM_ID": 1610612738,
-# "TEAM_NAME": "Celtics",
-# "TEAM_ABBREVIATION": "BOS",
-# "TEAM_CITY": "Boston",
-# "STARTERS_BENCH": "Starters",
-# "MIN": "143:26",
-# "FGM": 40,
-# "FGA": 65,
-# "FG_PCT": 0.615,
-# "FG3M": 26,
-# "FG3A": 41,
-# "FG3_PCT": 0.634,
-# "FTM": 7,
-# "FTA": 8,
-# "FT_PCT": 0.875,
-# "OREB": 4,
-# "DREB": 17,
-# "REB": 21,
-# "AST": 24,
-# "STL": 5,
-# "BLK": 2,
-# "TO": 2,
-# "PF": 9,
-# "PTS": 113
-# }
+class PlayerStatsResponse(BaseModel):
+    MIN: float
+    FGM: float
+    FGA: float
+    FG_PCT: str
+    FG3M: float
+    FG3A: float
+    FG3_PCT: str
+    FTM: float
+    FTA: float
+    FT_PCT: str
+    OREB: float
+    DREB: float
+    REB: float
+    AST: float
+    STL: float
+    BLK: float
+    TOV: float
+    PF: float
+    PTS: float
+    PLUS_MINUS: float
+    TYPE: str

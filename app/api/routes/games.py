@@ -6,12 +6,16 @@ router = APIRouter()
 
 
 # Get access to team game logs
-@router.get("/")
-def get_team_games():
+@router.get("/{team_id}/{season}/{type}")  # season: 2024-25type: RS | PO
+def get_team_games(team_id: str, season: str, type: str):
+    if type == "RS":
+        type = "Regular Season"
+    elif type == "PO":
+        type = "Playoffs"
     games = leaguegamefinder.LeagueGameFinder(
-        team_id_nullable="1610612738",  # "1610612745"
-        season_nullable="2024-25",
-        season_type_nullable="Regular Season",
+        team_id_nullable=team_id,  # - 1610612738
+        season_nullable=season,
+        season_type_nullable=type,
     )
 
     df_games = games.get_data_frames()[0]
