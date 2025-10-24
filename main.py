@@ -36,6 +36,6 @@ def root():
     return {"message": "NBA API Server is running 🚀"}
 
 
-# TODO: Run our server -> uvicorn app.main:app --reload
+# TODO: Run our server -> uvicorn main:app --reload
 
 # http://127.0.0.1:8000/docs
