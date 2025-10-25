@@ -2,7 +2,7 @@ name: Keep Render API alive
 
 on:
   schedule:
-    - cron: "*/13 * * * *" # cada 12 minutos
+    - cron: "*/5 * * * *" # cada 12 minutos
   workflow_dispatch: # permite ejecutarlo manualmente desde la UI
 
 jobs:
