@@ -2,12 +2,12 @@ name: Keep Render API alive
 
 on:
   schedule:
-    - cron: "*/13 * * * *"  # cada 12 minutos
-  workflow_dispatch:        # permite ejecutarlo manualmente desde la UI
+    - cron: "*/13 * * * *" # cada 12 minutos
+  workflow_dispatch: # permite ejecutarlo manualmente desde la UI
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Render API
-        run: curl -s https://api-nba-stats.onrender.com/health || true
+        run: curl -s https://api-nba-stats.onrender.com || true
