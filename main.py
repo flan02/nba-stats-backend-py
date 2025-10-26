@@ -1,5 +1,6 @@
 # Connect our service with FastAPI
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import (
     boxscore,
     lineups,
@@ -13,6 +14,19 @@ app = FastAPI(
     title="NBA API Server",
     description="Service FastAPI to retrieve NBA teams and players information",
     version="1.0.0",
+)
+
+origins = [
+    "http://localhost:3000",  # frontend
+    "https://www.2kceltics.xyz",  # producción
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # puede ser ["*"] solo para pruebas
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Create routes
